@@ -22,6 +22,8 @@ link_directories(
 add_library(sde-utils-gtk-1.0 MODULE
     utils.c
     gdkrgba.c
+    config.c
+    pixbuf-stuff.c
 )
 
 target_link_libraries(sde-utils-gtk-1.0

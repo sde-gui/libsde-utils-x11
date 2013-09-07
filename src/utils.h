@@ -21,5 +21,7 @@
 
 #include <gtk/gtk.h>
 #include "gdkrgba.h"
+#include "config.h"
+#include "pixbuf-stuff.h"
 
 #endif
