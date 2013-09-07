@@ -16,9 +16,9 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef __SDE_UTILS_JANSSON__SDE_UTILS_JANSSON_H
-#define __SDE_UTILS_JANSSON__SDE_UTILS_JANSSON_H
+#ifndef __SDE_UTILS_GTK__SDE_UTILS_GTK_H
+#define __SDE_UTILS_GTK__SDE_UTILS_GTK_H
 
-#include <sde-utils-jansson/utils.h>
+#include <sde-utils-gtk-1.0/sde-utils-gtk/utils.h>
 
 #endif

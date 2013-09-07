@@ -19,7 +19,6 @@
 #ifndef __SDE_UTILS_GTK__UTILS_H
 #define __SDE_UTILS_GTK__UTILS_H
 
-#include <glib.h>
 #include <gtk/gtk.h>
 #include "gdkrgba.h"
 
