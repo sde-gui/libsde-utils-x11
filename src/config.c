@@ -1,8 +1,10 @@
 #include "config.h"
 
-GKeyFile* settings;
+#define config_file "/usr/share/sde-config/sde-utils-gtk/settings.ini"
 
-void load_config()
+static GKeyFile * settings = NULL;
+
+static void load_config()
 {
 	settings = g_key_file_new();
 	g_key_file_load_from_file (settings, config_file, 0, NULL);
