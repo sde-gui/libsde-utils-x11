@@ -16,6 +16,7 @@ pkg_check_modules(gdk_pixbuf REQUIRED gdk-pixbuf-2.0>=2.28)
 add_library(sde-utils-gtk-1.0 SHARED
     gdkrgba.c
     gdk-pixbuf.c
+    icon-grid.c
     config.c
 )
 
@@ -38,7 +39,7 @@ target_link_libraries(sde-utils-gtk-1.0
 
 ##############################################################################
 
-file(GLOB headers "${CMAKE_CURRENT_SOURCE_DIR}/sde-utils-gtk.h" "${CMAKE_CURRENT_SOURCE_DIR}/gdkrgba.h" "${CMAKE_CURRENT_SOURCE_DIR}/gdk-pixbuf.h")
+file(GLOB headers "${CMAKE_CURRENT_SOURCE_DIR}/sde-utils-gtk.h" "${CMAKE_CURRENT_SOURCE_DIR}/gdkrgba.h" "${CMAKE_CURRENT_SOURCE_DIR}/gdk-pixbuf.h" "${CMAKE_CURRENT_SOURCE_DIR}/icon-grid.h")
 install(FILES ${headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sde-utils-gtk-1.0/sde-utils-gtk)
 install(FILES sde-utils-gtk.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sde-utils-gtk-1.0)
 install(TARGETS sde-utils-gtk-1.0 LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/)

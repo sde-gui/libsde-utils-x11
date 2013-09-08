@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 2.8)
 project(libsde-utils-gtk)
 
 option(ENABLE_WERROR "Enable -Werror flag for development" OFF)
-#option(ENABLE_AS_NEEDED "Enable -Wl,--as-needed for the linker" ON)
-
 
 include(GNUInstallDirs)
 

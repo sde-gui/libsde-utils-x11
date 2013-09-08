@@ -21,5 +21,6 @@
 
 #include <sde-utils-gtk/gdkrgba.h>
 #include <sde-utils-gtk/gdk-pixbuf.h>
+#include <sde-utils-gtk/icon-grid.h>
 
 #endif
