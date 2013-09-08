@@ -19,11 +19,11 @@
 #ifndef __WATERLINE__PIXBUF_STUFF_H
 #define __WATERLINE__PIXBUF_STUFF_H
 
+#include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf-xlib/gdk-pixbuf-xlib.h>
-#include "config.h"
 
 GdkPixbuf * _gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, int height);
 

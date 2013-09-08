@@ -19,6 +19,7 @@
 #ifndef __SDE_UTILS_GTK__SDE_UTILS_GTK_H
 #define __SDE_UTILS_GTK__SDE_UTILS_GTK_H
 
-#include <sde-utils-gtk/utils.h>
+#include <sde-utils-gtk/gdkrgba.h>
+#include <sde-utils-gtk/gdk-pixbuf.h>
 
 #endif

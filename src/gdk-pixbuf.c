@@ -24,7 +24,7 @@
 #define PIXBUF_INTERP_GOOD_QUALITY GDK_INTERP_HYPER
 #define PIXBUF_INTERP_POOR_QUALITY GDK_INTERP_BILINEAR
 
-GKeyFile* settings;
+GKeyFile* get_settings();
 
 /******************************************************************************/
 
@@ -103,9 +103,9 @@ void su_gdk_pixbuf_dim(GdkPixbuf *pixbuf)
     if (!gdk_pixbuf_get_has_alpha(pixbuf))
         return;
 
-    gdouble alpha_multiplier = g_key_file_get_double(settings, "Dim", "AlphaMultiplier", NULL);
-    gdouble rgb_offset       = g_key_file_get_double(settings, "Dim", "RGBOffset", NULL);
-    gdouble desaturation     = g_key_file_get_double(settings, "Dim", "Desaturation", NULL);
+    gdouble alpha_multiplier = g_key_file_get_double(get_settings(), "Dim", "AlphaMultiplier", NULL);
+    gdouble rgb_offset       = g_key_file_get_double(get_settings(), "Dim", "RGBOffset", NULL);
+    gdouble desaturation     = g_key_file_get_double(get_settings(), "Dim", "Desaturation", NULL);
 
     w = gdk_pixbuf_get_width(pixbuf);
     h = gdk_pixbuf_get_height(pixbuf);
@@ -323,12 +323,12 @@ void su_gdk_pixbuf_get_color_sample (GdkPixbuf *pixbuf, GdkColor * c1, GdkColor 
 
     gtk_rgb_to_hsv(r, g, b, &h, &s, &v);
 
-    gdouble saturation_min = g_key_file_get_double(settings, "ColorSample", "SaturationMin", NULL);
-    gdouble saturation_max = g_key_file_get_double(settings, "ColorSample", "SaturationMax", NULL);
-    gdouble value_min = g_key_file_get_double(settings, "ColorSample", "ValueMin", NULL);
-    gdouble value_max = g_key_file_get_double(settings, "ColorSample", "ValueMax", NULL);
-    gdouble saturation_delta = g_key_file_get_double(settings, "ColorSample", "SaturationDelta", NULL);
-    gdouble value_delta = g_key_file_get_double(settings, "ColorSample", "ValueDelta", NULL);
+    gdouble saturation_min = g_key_file_get_double(get_settings(), "ColorSample", "SaturationMin", NULL);
+    gdouble saturation_max = g_key_file_get_double(get_settings(), "ColorSample", "SaturationMax", NULL);
+    gdouble value_min = g_key_file_get_double(get_settings(), "ColorSample", "ValueMin", NULL);
+    gdouble value_max = g_key_file_get_double(get_settings(), "ColorSample", "ValueMax", NULL);
+    gdouble saturation_delta = g_key_file_get_double(get_settings(), "ColorSample", "SaturationDelta", NULL);
+    gdouble value_delta = g_key_file_get_double(get_settings(), "ColorSample", "ValueDelta", NULL);
 
     if (s < saturation_min)
         s = saturation_min;

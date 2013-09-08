@@ -3,9 +3,6 @@
 #include <gtk/gtk.h>
 
 
-extern GKeyFile* settings;
-
+extern GKeyFile* get_settings(void);
 extern void load_config(void);
-extern void save_config(void);
-extern void free_config(void);
 
