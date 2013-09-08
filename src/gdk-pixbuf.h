@@ -25,15 +25,15 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf-xlib/gdk-pixbuf-xlib.h>
 
-GdkPixbuf * _gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, int height);
-
-void _wnck_dim_icon(GdkPixbuf *pixbuf);
-
-GdkPixbuf * _gdk_pixbuf_apply_mask(GdkPixbuf * pixbuf, GdkPixbuf * mask);
-void _gdk_pixbuf_get_pixel(GdkPixbuf *pixbuf, int x, int y, unsigned * red, unsigned * green, unsigned * blue, unsigned * alpha);
-GdkPixbuf * _gdk_pixbuf_scale_in_rect(GdkPixbuf * pixmap, int required_width, int required_height, gboolean good_quality);
-void _gdk_pixbuf_get_color_sample(GdkPixbuf *pixbuf, GdkColor * c1, GdkColor * c2);
-
-GdkPixbuf * _composite_thumb_icon(GdkPixbuf * thumb, GdkPixbuf * icon, int size, int icon_size);
+GdkPixbuf * su_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, int height);
+void        su_gdk_pixbuf_dim(GdkPixbuf *pixbuf);
+GdkPixbuf * su_gdk_pixbuf_apply_mask(GdkPixbuf * pixbuf, GdkPixbuf * mask);
+void        su_gdk_pixbuf_get_pixel(GdkPixbuf *pixbuf,
+                                    int x, int y,
+                                    unsigned * red, unsigned * green, unsigned * blue, unsigned * alpha);
+GdkPixbuf * su_gdk_pixbuf_scale_in_rect(GdkPixbuf * pixmap,
+                                        int required_width, int required_height, gboolean good_quality);
+void        su_gdk_pixbuf_get_color_sample(GdkPixbuf *pixbuf, GdkColor * c1, GdkColor * c2);
+GdkPixbuf * su_gdk_pixbuf_composite_thumb_icon(GdkPixbuf * thumb, GdkPixbuf * icon, int size, int icon_size);
 
 #endif

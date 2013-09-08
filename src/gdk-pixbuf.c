@@ -271,7 +271,7 @@ void su_gdk_pixbuf_get_color_sample (GdkPixbuf *pixbuf, GdkColor * c1, GdkColor 
 {
     /* scale pixbuff down */
 
-    GdkPixbuf * p1 = _gdk_pixbuf_scale_in_rect(pixbuf, 3, 3, FALSE);
+    GdkPixbuf * p1 = su_gdk_pixbuf_scale_in_rect(pixbuf, 3, 3, FALSE);
 
     gulong pw = gdk_pixbuf_get_width(p1);
     gulong ph = gdk_pixbuf_get_height(p1);
@@ -288,20 +288,20 @@ void su_gdk_pixbuf_get_color_sample (GdkPixbuf *pixbuf, GdkColor * c1, GdkColor 
     }
     else if (pw == 1 && ph == 1)
     {
-        _gdk_pixbuf_get_pixel(p1, 0, 0, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
+        su_gdk_pixbuf_get_pixel(p1, 0, 0, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
     }
     else
     {
         if (pw > 1 && ph > 1)
-            _gdk_pixbuf_get_pixel(p1, 1, 1, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
+            su_gdk_pixbuf_get_pixel(p1, 1, 1, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
         if (ph > 1)
-            _gdk_pixbuf_get_pixel(p1, 0, 1, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
+            su_gdk_pixbuf_get_pixel(p1, 0, 1, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
         if (pw > 1)
-            _gdk_pixbuf_get_pixel(p1, 1, 0, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
+            su_gdk_pixbuf_get_pixel(p1, 1, 0, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
         if (ph > 2)
-            _gdk_pixbuf_get_pixel(p1, 0, 2, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
+            su_gdk_pixbuf_get_pixel(p1, 0, 2, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
         if (pw > 2)
-            _gdk_pixbuf_get_pixel(p1, 2, 0, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
+            su_gdk_pixbuf_get_pixel(p1, 2, 0, &r1, &g1, &b1, &a); r += r1; g += g1; b += b1; samples_count++;
     }
 
     g_object_unref(p1);
@@ -368,7 +368,7 @@ GdkPixbuf * su_gdk_pixbuf_composite_thumb_icon(GdkPixbuf * thumb, GdkPixbuf * ic
     gdk_pixbuf_copy_area(thumb, 0, 0, w, h, p1, x, y);
     if (icon)
     {
-        GdkPixbuf * p3 = _gdk_pixbuf_scale_in_rect(icon, icon_size, icon_size, TRUE);
+        GdkPixbuf * p3 = su_gdk_pixbuf_scale_in_rect(icon, icon_size, icon_size, TRUE);
         gulong w = gdk_pixbuf_get_width(p3);
         gulong h = gdk_pixbuf_get_height(p3);
         gdk_pixbuf_composite(p3, p1,
