@@ -11,7 +11,7 @@ static void load_config()
     const char * agent_id = agent_id = su_path_resolve_agent_id_by_pointer(get_settings, "sde-utils-gtk");
     su_path_register_default_agent_prefix(agent_id, PACKAGE_INSTALLATION_PREFIX);
 
-    gchar * path = su_path_resolve_config(agent_id, SU_PATH_CONFIG_USER, "sde/sde-utils-gtk", NULL, "settings.ini");
+    gchar * path = su_path_resolve_config(agent_id, SU_PATH_CONFIG_USER, "sde/sde-utils-gtk", NULL, "settings.ini", NULL);
 
     if (path)
     {
