@@ -17,10 +17,10 @@
  */
 
 #include "utils.h"
+#include "atoms.h"
 #include <X11/Xlib.h>
 #include <stdlib.h>
 #include <sde-utils.h>
-
 
 void * su_x11_get_xa_property(Display * display, Window xid, Atom prop, Atom type, int *nitems)
 {
@@ -45,5 +45,31 @@ void * su_x11_get_xa_property(Display * display, Window xid, Atom prop, Atom typ
     if (nitems)
         *nitems = items_ret;
     return prop_data;
+}
+
+void * su_x11_get_utf8_property(Display * display, Window win, Atom atom)
+{
+    Atom type;
+    int format;
+    gulong nitems;
+    gulong bytes_after;
+    gchar *val, *retval;
+    int result;
+    guchar *tmp = NULL;
+
+    type = None;
+    retval = NULL;
+    result = XGetWindowProperty(display, win, atom, 0, G_MAXLONG, False,
+          aUTF8_STRING, &type, &format, &nitems,
+          &bytes_after, &tmp);
+    if (result != Success || type == None)
+        return NULL;
+    val = (gchar *) tmp;
+    if (val) {
+        if (type == aUTF8_STRING && format == 8 && nitems != 0)
+            retval = g_strndup (val, nitems);
+        XFree (val);
+    }
+    return retval;
 }
 

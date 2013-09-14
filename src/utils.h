@@ -23,6 +23,6 @@
 #include <X11/Xlib.h>
 
 void * su_x11_get_xa_property(Display * display, Window xid, Atom prop, Atom type, int *nitems);
-
+void * su_x11_get_utf8_property(Display * display, Window win, Atom atom);
 
 #endif
