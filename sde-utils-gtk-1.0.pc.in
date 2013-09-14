@@ -1,9 +1,0 @@
-prefix=@CMAKE_INSTALL_PREFIX@
-libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
-includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
-
-Name: sde-utils-gtk
-Description: SDE GTK Utility Library
-Version: 0.1
-Libs: -L${libdir} -lsde-utils-gtk-1.0
-Cflags: -I${includedir}/sde-utils-gtk-1.0

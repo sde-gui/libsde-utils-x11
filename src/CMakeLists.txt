@@ -8,44 +8,37 @@ set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined ${CMAKE_SHARED_LINKER_FLAGS}")
 ##############################################################################
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(gtk2 REQUIRED gtk+-2.0>=2.24)
-pkg_check_modules(gdk_pixbuf REQUIRED gdk-pixbuf-2.0>=2.28)
+pkg_check_modules(x11 REQUIRED x11)
 pkg_check_modules(sde_utils REQUIRED sde-utils-1.0>=0.1)
 
 ##############################################################################
 
-add_library(sde-utils-gtk-1.0 SHARED
-    gdkrgba.c
-    gdk-pixbuf.c
-    icon-grid.c
-    config.c
+add_library(sde-utils-x11-1.0 SHARED
+    utils.c
 )
 
 ##############################################################################
 
 add_definitions(
     -DPACKAGE_INSTALLATION_PREFIX=\"${CMAKE_INSTALL_PREFIX}\"
-    ${gtk2_CFLAGS}
-    ${gdk_pixbuf_CFLAGS}
+    ${x11_CFLAGS}
     ${sde_utils_CFLAGS}
 )
 
 link_directories(
-    ${gtk2_pixbuf_LIBRARY_DIRS}
-    ${gdk_pixbuf_LIBRARY_DIRS}
+    ${x11_pixbuf_LIBRARY_DIRS}
     ${sde_utils_LIBRARY_DIRS}
 )
 
-target_link_libraries(sde-utils-gtk-1.0
-    ${gtk2_LIBRARIES}
-    ${gdk_pixbuf_LIBRARIES}
+target_link_libraries(sde-utils-x11-1.0
+    ${x11_LIBRARIES}
     ${sde_utils_LIBRARIES}
 )
 
 ##############################################################################
 
-file(GLOB headers "${CMAKE_CURRENT_SOURCE_DIR}/sde-utils-gtk.h" "${CMAKE_CURRENT_SOURCE_DIR}/gdkrgba.h" "${CMAKE_CURRENT_SOURCE_DIR}/gdk-pixbuf.h" "${CMAKE_CURRENT_SOURCE_DIR}/icon-grid.h")
-install(FILES ${headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sde-utils-gtk-1.0/sde-utils-gtk)
-install(FILES sde-utils-gtk.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sde-utils-gtk-1.0)
-install(TARGETS sde-utils-gtk-1.0 LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/)
+file(GLOB headers ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
+install(FILES ${headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sde-utils-x11-1.0/sde-utils-x11)
+install(FILES sde-utils-x11.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sde-utils-x11-1.0)
+install(TARGETS sde-utils-x11-1.0 LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/)
 

@@ -16,11 +16,9 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef __SDE_UTILS_GTK__SDE_UTILS_GTK_H
-#define __SDE_UTILS_GTK__SDE_UTILS_GTK_H
+#ifndef __SDE_UTILS_X11__SDE_UTILS_X11_H
+#define __SDE_UTILS_X11__SDE_UTILS_X11_H
 
-#include <sde-utils-gtk/gdkrgba.h>
-#include <sde-utils-gtk/gdk-pixbuf.h>
-#include <sde-utils-gtk/icon-grid.h>
+#include <sde-utils-x11/utils.h>
 
 #endif
