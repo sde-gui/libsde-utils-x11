@@ -14,6 +14,7 @@ pkg_check_modules(sde_utils REQUIRED sde-utils-1.0>=0.1)
 ##############################################################################
 
 add_library(sde-utils-x11-1.0 SHARED
+    atoms.c
     utils.c
 )
 
