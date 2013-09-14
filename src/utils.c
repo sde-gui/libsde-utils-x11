@@ -17,4 +17,33 @@
  */
 
 #include "utils.h"
+#include <X11/Xlib.h>
+#include <stdlib.h>
+#include <sde-utils.h>
+
+
+void * su_x11_get_xa_property(Display * display, Window xid, Atom prop, Atom type, int *nitems)
+{
+    Atom type_ret;
+    int format_ret;
+    unsigned long items_ret;
+    unsigned long after_ret;
+
+    unsigned char * prop_data = NULL;
+
+    if (XGetWindowProperty(display, xid, prop, 0, 0x7fffffff, False,
+              type, &type_ret, &format_ret, &items_ret,
+              &after_ret, &prop_data) != Success)
+    {
+        if (prop_data)
+            XFree(prop_data);
+        if (nitems)
+            *nitems = 0;
+        return NULL;
+    }
+
+    if (nitems)
+        *nitems = items_ret;
+    return prop_data;
+}
 

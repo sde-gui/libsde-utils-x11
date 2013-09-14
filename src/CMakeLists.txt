@@ -19,6 +19,11 @@ add_library(sde-utils-x11-1.0 SHARED
 
 ##############################################################################
 
+include_directories(
+    ${x11_INCLUDE_DIRS}
+    ${sde_utils_INCLUDE_DIRS}
+)
+
 add_definitions(
     -DPACKAGE_INSTALLATION_PREFIX=\"${CMAKE_INSTALL_PREFIX}\"
     ${x11_CFLAGS}

@@ -20,5 +20,9 @@
 #define __SDE_UTILS_X11__UTILS_H
 
 #include <X11/X.h>
+#include <X11/Xlib.h>
+
+void * su_x11_get_xa_property(Display * display, Window xid, Atom prop, Atom type, int *nitems);
+
 
 #endif
