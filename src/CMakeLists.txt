@@ -13,13 +13,6 @@ pkg_check_modules(sde_utils REQUIRED sde-utils-1.0>=0.1)
 
 ##############################################################################
 
-add_library(sde-utils-x11-1.0 SHARED
-    atoms.c
-    utils.c
-)
-
-##############################################################################
-
 include_directories(
     ${x11_INCLUDE_DIRS}
     ${sde_utils_INCLUDE_DIRS}
@@ -34,6 +27,11 @@ add_definitions(
 link_directories(
     ${x11_pixbuf_LIBRARY_DIRS}
     ${sde_utils_LIBRARY_DIRS}
+)
+
+add_library(sde-utils-x11-1.0 SHARED
+    atoms.c
+    utils.c
 )
 
 target_link_libraries(sde-utils-x11-1.0
