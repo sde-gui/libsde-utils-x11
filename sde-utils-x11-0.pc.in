@@ -1,0 +1,12 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+pkgincludedir=@includedir@/@PACKAGE@
+datadir=@datadir@
+
+Name: @PACKAGE@
+Description: SDE C Utility Library
+Version: 0.1
+Requires: x11
+Libs: -L${libdir} -l@PACKAGE@
+Cflags: -I${pkgincludedir}
