@@ -24,7 +24,7 @@ libsde_utils_x11_0_la_LIBADD = \
 
 libsde_utils_x11_0_la_LDFLAGS = \
 	-no-undefined \
-	-export-symbols-regex ^su \
+	-export-symbols-regex '^(su|a)' \
 	-version-info $(ABI_VERSION) \
 	$(NULL)
 
