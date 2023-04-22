@@ -12,6 +12,7 @@
 /config.status
 /configure
 /libtool
+/m4
 /sde-utils-x11-0.pc
 /stamp-h1
 Makefile
